@@ -19,10 +19,12 @@
         <h2>PRODUCT</h2>
         <div class="welcome-text">Visualization Dashboard</div>
         <div class="input-container">
-            <input type="text" class="loginUsername" placeholder="Username">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" class="loginUsername" placeholder="Username">
         </div>
         <div class="input-container">
-            <input type="password" class="loginPassword" placeholder="Password">
+          <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" class="loginPassword" placeholder="Password">
             <i class="toggleLoginPassword fas fa-eye" onclick="toggleLoginPassword(event)"></i>
         </div>
         <button onclick="login()">Sign In</button>
@@ -36,14 +38,17 @@
     <div id="signUpPage" class="page" style="display:none;">
         <h2>Create Account</h2>
         <div class="input-container">
-            <input type="text" class="signupUsername" placeholder="Username">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" class="signupUsername" placeholder="Username">
         </div>
         <div class="input-container">
-            <input type="password" class="signupPassword" placeholder="Password">
+             <label for="signupPassword">Password:</label>
+            <input type="password"  id = "signupPassword" class="signupPassword" placeholder="Password">
             <i class="toggleSignupPassword fas fa-eye" onclick="toggleSignupPassword(event)"></i>
         </div>
         <div class="input-container">
-            <input type="password" class="confirmSignupPassword" placeholder="Confirm Password">
+            <label for="confirmSignupPassword">Confirm Password:</label>
+            <input type="password" id="confirmSignupPassword" class="confirmSignupPassword" placeholder="Confirm Password">
             <i class="toggleConfirmSignupPassword fas fa-eye" onclick="toggleConfirmSignupPassword(event)"></i>
         </div>
         <button onclick="signUp()">Sign Up</button>
@@ -56,11 +61,13 @@
 
         <h2>Reset Password</h2>
         <div class="input-container">
-            <input type="password" class="newPassword" placeholder="New Password">
+             <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" class="newPassword" placeholder="New Password">
             <i class="fas fa-eye" onclick="toggleNewPassword(event)"></i>
         </div>
         <div class="input-container">
-            <input type="password" class="confirmPassword" placeholder="Confirm Password">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" class="confirmPassword" placeholder="Confirm Password">
             <i class="fas fa-eye" onclick="toggleConfirmPassword(event)"></i>
         </div>
         <button onclick="resetPassword()">Reset Password</button>
@@ -79,7 +86,7 @@
         <div class="dashboard-container">
             <div class="filter-section">
                 <div class="date-range-filter">
-                    <label for="startDate">Start Date:</label>
+                   <label for="startDate">Start Date:</label>
                     <input type="date" id="startDate">
                     <label for="endDate">End Date:</label>
                     <input type="date" id="endDate">
@@ -93,7 +100,7 @@
                     </select>
                 </div>
                 <div class="gender-filter">
-                    <label for="genderFilter">Gender:</label>
+                     <label for="genderFilter">Gender:</label>
                     <select id="genderFilter">
                         <option value="all">All</option>
                         <option value="Male">Male</option>
@@ -143,4 +150,3 @@
 </body>
 
 </html>
-
