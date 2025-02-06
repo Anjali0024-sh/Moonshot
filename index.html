@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div id="loginPage" class="page">
+        <div class="welcome-text">Welcome to</div>
+        <h2>PRODUCT</h2>
+        <div class="welcome-text">Visualization Dashboard</div>
+        <div class="input-container">
+            <input type="text" class="loginUsername" placeholder="Username">
+        </div>
+        <div class="input-container">
+            <input type="password" class="loginPassword" placeholder="Password">
+            <i class="toggleLoginPassword fas fa-eye" onclick="toggleLoginPassword(event)"></i>
+        </div>
+        <button onclick="login()">Sign In</button>
+        <a href="javascript:void(0)" onclick="showForgotPassword()">Forgot Password?</a>
+        <div class="signup-link">
+            <a href="javascript:void(0)" onclick="showSignUpPage()">Create Account</a>
+        </div>
+    </div>
+
+
+    <div id="signUpPage" class="page" style="display:none;">
+        <h2>Create Account</h2>
+        <div class="input-container">
+            <input type="text" class="signupUsername" placeholder="Username">
+        </div>
+        <div class="input-container">
+            <input type="password" class="signupPassword" placeholder="Password">
+            <i class="toggleSignupPassword fas fa-eye" onclick="toggleSignupPassword(event)"></i>
+        </div>
+        <div class="input-container">
+            <input type="password" class="confirmSignupPassword" placeholder="Confirm Password">
+            <i class="toggleConfirmSignupPassword fas fa-eye" onclick="toggleConfirmSignupPassword(event)"></i>
+        </div>
+        <button onclick="signUp()">Sign Up</button>
+        <div class="login-link">
+            <a href="javascript:void(0)" onclick="showLoginPage()">Back to Login</a>
+        </div>
+    </div>
+
+    <div id="forgotPasswordPage" class="page" style="display:none;">
+
+        <h2>Reset Password</h2>
+        <div class="input-container">
+            <input type="password" class="newPassword" placeholder="New Password">
+            <i class="fas fa-eye" onclick="toggleNewPassword(event)"></i>
+        </div>
+        <div class="input-container">
+            <input type="password" class="confirmPassword" placeholder="Confirm Password">
+            <i class="fas fa-eye" onclick="toggleConfirmPassword(event)"></i>
+        </div>
+        <button onclick="resetPassword()">Reset Password</button>
+        <a href="javascript:void(0)" onclick="showLoginPage()">Back to Login</a>
+    </div>
+
+    <div id="dashboardPage" style="display:none;">
+        <header>
+            <h1>Product Analytics Dashboard</h1>
+            <button id="darkModeButton">Toggle Dark Mode</button>
+            <div class="profile-icon" onclick="handleLogout()">
+                <i class="fas fa-user"></i>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="filter-section">
+                <div class="date-range-filter">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate">
+                </div>
+                <div class="age-filter">
+                    <label for="ageFilter">Age:</label>
+                    <select id="ageFilter">
+                        <option value="all">All</option>
+                        <option value="15-25">15-25</option>
+                        <option value=">25">>25</option>
+                    </select>
+                </div>
+                <div class="gender-filter">
+                    <label for="genderFilter">Gender:</label>
+                    <select id="genderFilter">
+                        <option value="all">All</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <button id="apply-filters">Apply Filters</button>
+                <button id="reset-filters">Reset Filters</button>
+                <button id="share-url">Share URL</button>
+            </div>
+
+            <div class="charts-container">
+                <canvas id="barChart"></canvas>
+                <canvas id="lineChart"></canvas>
+            </div>
+
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="url-popup" id="urlPopup">
+            <div class="popup-content">
+                <span class="close-popup"
+                    onclick="document.getElementById('urlPopup').style.display = 'none';">×</span>
+                <p id="shared-url-display"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
