@@ -83,13 +83,13 @@ body.dark-mode .input-container input {
 .input-container i {
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 65%;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
 button {
-    background-color: #2d3e50;
+    background-color: #1d6568;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -137,7 +137,7 @@ body.dark-mode .login-link a {
 }
 
 header {
-    background-color: #f0f0f0;
+    background-color: #06f5d5;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -145,6 +145,8 @@ header {
     transition: background-color 0.3s ease;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode header {
@@ -167,7 +169,7 @@ body.dark-mode header #darkModeButton {
 }
 
 header #darkModeButton:hover {
-    background-color: #34495e;
+    background-color: #0878e9;
 }
 
 body.dark-mode header #darkModeButton:hover {

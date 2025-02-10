@@ -8,7 +8,6 @@ async function fetchData() {
         return jsonData;
     } catch (error) {
         console.error('Failed to fetch data:', error);
-        // Display an error message in the table
         document.getElementById('data-table-body').innerHTML = '<tr><td colspan="9">Failed to load data.  Check the console and ensure data.json is accessible.</td></tr>';
         return null;
     }
@@ -32,8 +31,6 @@ const loginPage = document.getElementById('loginPage');
 const signUpPage = document.getElementById('signUpPage');
 const forgotPasswordPage = document.getElementById('forgotPasswordPage');
 const dashboardPage = document.getElementById('dashboardPage');
-
-
 const barChartCanvas = document.getElementById('barChart');
 const lineChartCanvas = document.getElementById('lineChart');
 const dataTableBody = document.getElementById('data-table-body');
@@ -208,22 +205,21 @@ function handleLogout() {
 
 function parseDate(dateString) {
     const parts = dateString.split('/');
-    // Ensure we have the expected parts (day, month, year)
+
     if (parts.length === 3) {
         const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10) - 1; // Months are 0-indexed in JavaScript Dates
+        const month = parseInt(parts[1], 10) - 1; 
         const year = parseInt(parts[2], 10);
 
-        // Check if the parts resulted in valid numbers
         if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
             return new Date(year, month, day);
         } else {
             console.error("Invalid date part(s) in:", dateString);
-            return null; // Or throw an error, or return a default date
+            return null; 
         }
     } else {
         console.error("Unexpected date format:", dateString);
-        return null; // Or throw an error, or return a default date
+        return null; 
     }
 }
 function filterData(data, filters) {
@@ -232,7 +228,7 @@ function filterData(data, filters) {
         const startDate = filters.startDate ? new Date(filters.startDate) : null;
         const endDate = filters.endDate ? new Date(filters.endDate) : null;
 
-        if (!itemDate) return false; // Skip invalid dates.
+        if (!itemDate) return false; 
 
         if (startDate && itemDate < startDate) return false;
         if (endDate && itemDate > endDate) return false;
@@ -400,7 +396,7 @@ function updateLineChart(feature, data, filters) {
       lineChart = null;
   }
 
-  if (lineChartData.labels.length > 0) {  // only create/update if data available.
+  if (lineChartData.labels.length > 0) {  
     lineChart = new Chart(lineChartCanvas, {
           type: 'line',
           data: lineChartData,
@@ -529,8 +525,8 @@ function applyFilters(data, initialLoad = true) {
 
 function shareDashboard() {
   const params = new URLSearchParams(currentFilters);
-  const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`; // Correct template literal usage
-  sharedUrlDisplay.textContent = `Share this URL: ${url}`; // Correct template literal usage
+  const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`; 
+  sharedUrlDisplay.textContent = `Share this URL: ${url}`; 
   urlPopup.style.display = 'flex';
 }
 
